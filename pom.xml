@@ -10,6 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>e3mall_common</module>
+        <module>e3mall_manager</module>
+        <module>e3mall_manager</module>
+        <module>e3mall_manager</module>
+        <module>e3mall_manager</module>
+        <module>e3mall_manager</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->
