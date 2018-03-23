@@ -30,17 +30,17 @@
         </dependency>
     </dependencies>
 
-    <!-- 配置tomcat插件 -->
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <configuration>
-                    <path>/</path>
-                    <port>8080</port>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <!-- 配置tomcat插件（eclipse使用） -->
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.tomcat.maven</groupId>-->
+                <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<path>/</path>-->
+                    <!--<port>8080</port>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 </project>
