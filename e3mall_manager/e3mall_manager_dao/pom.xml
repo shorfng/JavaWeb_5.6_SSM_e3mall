@@ -55,7 +55,7 @@
         </dependency>
     </dependencies>
 
-    <!-- 如果不添加此节点，mybatis的mapper.xml文件都会被漏掉 -->
+    <!-- 解决mapper绑定异常，指定dao层的资源文件目录在src/main/java -->
     <build>
         <resources>
             <resource>
