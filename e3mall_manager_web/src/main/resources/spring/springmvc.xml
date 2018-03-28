@@ -27,6 +27,10 @@
         <property name="suffix" value=".jsp"/>           <!-- 后缀 -->
     </bean>
 
+    <!-- 配置资源映射 -->
+    <mvc:resources location="WEB-INF/css/" mapping="/css/**"/>
+    <mvc:resources location="WEB-INF/js/" mapping="/js/**"/>
+
     <!-- 使用dubbo引用服务 -->
     <dubbo:application name="e3mall_manager_web"/>
     <dubbo:registry protocol="zookeeper" address="192.168.31.72:2181"/>
