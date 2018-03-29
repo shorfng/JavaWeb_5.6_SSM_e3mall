@@ -2,6 +2,7 @@ package com.loto.e3mall.controller;
 
 // 商品管理Controller
 
+import com.loto.e3mall.common.pojo.EasyUIDataGridResult;
 import com.loto.e3mall.pojo.TbItem;
 import com.loto.e3mall.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,14 @@ public class ItemController {
 	public TbItem getItemById(@PathVariable Long itemId) {
 		TbItem tbItem = itemService.getItemById(itemId);
 		return tbItem;
+	}
+
+	// 查询所有商品列表，进行分页处理
+	@RequestMapping("/item/list")
+	@ResponseBody
+	public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
+		// 调用服务查询商品列表
+		EasyUIDataGridResult result = itemService.getItemList(page, rows);
+		return result;
 	}
 }
