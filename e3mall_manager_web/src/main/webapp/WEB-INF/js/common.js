@@ -22,11 +22,11 @@ Date.prototype.format = function(format){
 var E3 = {
 	// 编辑器参数
 	kingEditorParams : {
-		//指定上传文件参数名称
+		// 指定上传文件参数名称
 		filePostName  : "uploadFile",
-		//指定上传文件请求的url。
+		// 指定上传文件请求的url。
 		uploadJson : '/pic/upload',
-		//上传类型，分别为image、flash、media、file
+		// 上传类型，分别为image、flash、media、file
 		dir : "image"
 	},
 	// 格式化时间
@@ -80,7 +80,7 @@ var E3 = {
         			}
         		}
         	}
-        	//给“上传图片按钮”绑定click事件
+        	// 给“上传图片按钮”绑定click事件
         	$(e).click(function(){
         		var form = $(this).parentsUntil("form").parent("form");
         		//打开图片上传窗口
@@ -120,11 +120,13 @@ var E3 = {
     			    closed:true,
     			    iconCls:'icon-save',
     			    title:'选择类目',
+
     			    onOpen : function(){
     			    	var _win = this;
     			    	$("ul",_win).tree({
     			    		url:'/item/cat/list',
     			    		animate:true,
+
     			    		onClick : function(node){
     			    			if($(this).tree("isLeaf",node.target)){
     			    				// 填写到cid中
