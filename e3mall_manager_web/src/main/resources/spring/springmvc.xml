@@ -33,7 +33,7 @@
 
     <!-- 使用dubbo引用服务 -->
     <dubbo:application name="e3mall_manager_web"/>
-    <dubbo:registry protocol="zookeeper" address="192.168.31.72:2181"/>
+    <dubbo:registry protocol="zookeeper" address="172.16.137.131:2181"/>
     <dubbo:reference interface="com.loto.e3mall.service.ItemService" id="itemService"/>
     <dubbo:reference interface="com.loto.e3mall.service.ItemCatService" id="itemCatService"/>
 </beans>
