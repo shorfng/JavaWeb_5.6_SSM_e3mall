@@ -2,16 +2,26 @@ package com.loto.e3mall.service.impl;
 
 // 商品管理Service
 
+import java.util.Date;
 import java.util.List;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
 import com.loto.e3mall.common.pojo.EasyUIDataGridResult;
+import com.loto.e3mall.common.utils.E3Result;
+import com.loto.e3mall.common.utils.IDUtils;
+
+import com.loto.e3mall.mapper.TbItemDescMapper;
 import com.loto.e3mall.mapper.TbItemMapper;
+
 import com.loto.e3mall.pojo.TbItem;
+import com.loto.e3mall.pojo.TbItemDesc;
 import com.loto.e3mall.pojo.TbItemExample;
 import com.loto.e3mall.pojo.TbItemExample.Criteria;
+
 import com.loto.e3mall.service.ItemService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +30,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private TbItemMapper itemMapper;
+
+    @Autowired
+    private TbItemDescMapper itemDescMapper;
 
     // 根据商品id查询商品信息
     @Override
@@ -62,5 +75,36 @@ public class ItemServiceImpl implements ItemService {
         result.setTotal(total);
 
         return result;
+    }
+
+    // 商品添加功能
+    @Override
+    public E3Result addItem(TbItem item, String desc) {
+        // 生成商品id
+        long itemId = IDUtils.genItemId();
+
+        // 补全TbItem对象的属性
+        item.setId(itemId);
+        item.setStatus((byte) 1);   // 1-正常，2-下架，3-删除
+        item.setCreated(new Date());
+        item.setUpdated(new Date());
+
+        // 向商品表插入数据
+        itemMapper.insert(item);
+
+        // 创建一个商品描述表TbItemDesc对应的pojo对象
+        TbItemDesc itemDesc = new TbItemDesc();
+
+        // 补全TbItemDesc的属性
+        itemDesc.setItemId(itemId);
+        itemDesc.setItemDesc(desc);
+        itemDesc.setCreated(new Date());
+        itemDesc.setUpdated(new Date());
+
+        // 向商品描述表插入数据
+        itemDescMapper.insert(itemDesc);
+
+        // 返回成功
+        return E3Result.ok();
     }
 }

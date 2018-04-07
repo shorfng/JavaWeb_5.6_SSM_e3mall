@@ -40,9 +40,11 @@
 
             <tr>
                 <td>库存数量:</td>
-                <td><input class="easyui-numberbox" type="text" name="num"
-                           data-options="min:1,max:99999999,precision:0,required:true"/></td>
+                <td>
+                    <input class="easyui-numberbox" type="text" name="num" data-options="min:1,max:99999999,precision:0,required:true"/>
+                </td>
             </tr>
+
             <tr>
                 <td>条形码:</td>
                 <td>
@@ -69,6 +71,7 @@
                 <td>商品规格:</td>
                 <td></td>
             </tr>
+
         </table>
         <input type="hidden" name="itemParams"/>
     </form>
@@ -130,6 +133,7 @@
         */
         //ajax的post方式提交表单
         //$("#itemAddForm").serialize()将表单序列号为key-value形式的字符串
+
         $.post("/item/save", $("#itemAddForm").serialize(), function (data) {
             if (data.status == 200) {
                 $.messager.alert('提示', '新增商品成功!');
