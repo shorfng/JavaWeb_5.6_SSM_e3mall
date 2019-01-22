@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
+
 @Controller
 public class ItemController {
 
-	@Autowired
+//	@Autowired
+	@Resource
 	private ItemService itemService;
 
 	// 根据商品id查询商品信息  http://localhost:8080/JavaWeb06_5.0_e3mall/item/536563
