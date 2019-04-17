@@ -14,7 +14,6 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-
         <!-- 依赖service实现类 -->
         <dependency>
             <artifactId>e3mall_manager_interface</artifactId>
@@ -113,6 +112,12 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>3.4.2-fix</version>
         </dependency>
     </dependencies>
 

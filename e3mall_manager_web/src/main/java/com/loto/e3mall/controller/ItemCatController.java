@@ -9,6 +9,7 @@ import com.loto.e3mall.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,7 +24,7 @@ public class ItemCatController {
 	private ItemCatService itemCatService;
 
 	// 根据parentId查询节点列表
-	@RequestMapping("/item/cat/list")
+	@RequestMapping(value = "/item/cat/list",method = RequestMethod.POST)
 	@ResponseBody
 	public List<EasyUITreeNode> getItemCatList(@RequestParam(name="id", defaultValue="0")Long parentId) {
 		// 调用服务查询节点列表

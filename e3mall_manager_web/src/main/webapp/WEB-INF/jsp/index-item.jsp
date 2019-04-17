@@ -2,6 +2,7 @@
 <div>
 	 <a class="easyui-linkbutton" onclick="importItems()">一键导入商品数据到索引库</a>
 </div>
+
 <script type="text/javascript">
 	function importItems() {
 		$.post("/index/item/import",null,function(data){

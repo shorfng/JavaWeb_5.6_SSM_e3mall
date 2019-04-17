@@ -27,7 +27,6 @@ public class PictureController {
 	@ResponseBody
 	public String uploadFile(MultipartFile uploadFile) {
 		try {
-
 			FastDFSClient fastDFSClient = new FastDFSClient("classpath:conf/client.conf");
 
 			// 获取文件扩展名

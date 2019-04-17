@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
-
 	// 展示后台首页
 	@RequestMapping("/")
 	public String showIndex() {
