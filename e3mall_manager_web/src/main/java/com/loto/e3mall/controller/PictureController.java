@@ -1,7 +1,5 @@
 package com.loto.e3mall.controller;
 
-// 图片上传处理
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+// 图片上传处理
 
 @Controller
 public class PictureController {
-	
 	@Value("${IMAGE_SERVER_URL}")
 	private String IMAGE_SERVER_URL;
 

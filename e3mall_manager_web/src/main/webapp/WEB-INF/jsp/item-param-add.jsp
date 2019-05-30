@@ -35,7 +35,7 @@
 		</ul>
 	</li>
 </div>
-<script style="text/javascript">
+<script style="text:javascript">
 	$(function(){
 		E3.initItemCat({
 			fun:function(node){

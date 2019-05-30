@@ -485,7 +485,7 @@ public class TbContentCategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreatedEqualTo(Date value) {
+        public Criteria andCreatedEqualTo(long value) {
             addCriterion("created =", value, "created");
             return (Criteria) this;
         }

@@ -14,6 +14,8 @@
         <module>e3mall_common</module>
         <module>e3mall_manager</module>
         <module>e3mall_manager_web</module>
+        <module>e3mall_portal_web</module>
+        <module>e3mall_content</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->
