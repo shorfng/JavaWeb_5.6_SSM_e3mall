@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%--
+  User：蓝田_Loto
+  Date：2019-05-31 17:29
+  PageName：content.jsp
+  Function：内容管理
+--%>
+
 <div class="easyui-panel" title="Nested Panel" data-options="width:'100%',minHeight:500,noheader:true,border:false" style="padding:10px;">
     <div class="easyui-layout" data-options="fit:true">
         <div data-options="region:'west',split:false" style="width:250px;padding:5px">
-            <ul id="contentCategoryTree" class="easyui-tree" data-options="url:'/content/category/list',animate: true,method : 'GET'">
-            </ul>
+            <ul id="contentCategoryTree" class="easyui-tree" data-options="url:'/content/category/list',animate: true,method : 'GET'"></ul>
         </div>
         <div data-options="region:'center'" style="padding:5px">
             <table class="easyui-datagrid" id="contentList" data-options="toolbar:contentListToolbar,singleSelect:false,collapsible:true,pagination:true,method:'get',pageSize:20,url:'/content/query/list',queryParams:{categoryId:0}">
@@ -24,12 +31,15 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
 $(function(){
 	var tree = $("#contentCategoryTree");
 	var datagrid = $("#contentList");
+
 	tree.tree({
 		onClick : function(node){
+		    /* 判断tree是不是叶子节点 */
 			if(tree.tree("isLeaf",node.target)){
 				datagrid.datagrid('reload', {
 					categoryId :node.id
@@ -49,7 +59,7 @@ var contentListToolbar = [{
     	}
     	E3.createWindow({
 			url : "/content-add"
-		}); 
+		});
     }
 },{
     text:'编辑',
@@ -69,18 +79,18 @@ var contentListToolbar = [{
 			onLoad : function(){
 				var data = $("#contentList").datagrid("getSelections")[0];
 				$("#contentEditForm").form("load",data);
-				
+
 				// 实现图片
 				if(data.pic){
-					$("#contentEditForm [name=pic]").after("<a href='"+data.pic+"' target='_blank'><img src='"+data.pic+"' width='80' height='50'/></a>");	
+					$("#contentEditForm [name=pic]").after("<a href='"+data.pic+"' target='_blank'><img src='"+data.pic+"' width='80' height='50'/></a>");
 				}
 				if(data.pic2){
-					$("#contentEditForm [name=pic2]").after("<a href='"+data.pic2+"' target='_blank'><img src='"+data.pic2+"' width='80' height='50'/></a>");					
+					$("#contentEditForm [name=pic2]").after("<a href='"+data.pic2+"' target='_blank'><img src='"+data.pic2+"' width='80' height='50'/></a>");
 				}
-				
+
 				contentEditEditor.html(data.content);
 			}
-		});    	
+		});
     }
 },{
     text:'删除',
