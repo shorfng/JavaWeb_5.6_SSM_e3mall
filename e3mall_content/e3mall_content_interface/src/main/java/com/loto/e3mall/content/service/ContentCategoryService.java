@@ -1,6 +1,7 @@
 package com.loto.e3mall.content.service;
 
 import com.loto.e3mall.common.pojo.EasyUITreeNode;
+import com.loto.e3mall.common.utils.E3Result;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ import java.util.List;
 public interface ContentCategoryService {
     // 展示内容分类列表
     List<EasyUITreeNode> getContentCatList(long parentId);
+
+    // 添加内容分类节点
+    E3Result addContentCategory(long parentId, String name);
 }
