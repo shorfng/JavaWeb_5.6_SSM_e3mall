@@ -20,4 +20,5 @@
 
     <!-- 声明需要暴露的服务接口：ref为引用对象 -->
     <dubbo:service id="contentCategoryService" interface="com.loto.e3mall.content.service.ContentCategoryService" ref="contentCategoryServiceImpl" timeout="600000"/>
+    <dubbo:service id="contentService" interface="com.loto.e3mall.content.service.ContentService" ref="contentServiceImpl" timeout="600000"/>
 </beans>
