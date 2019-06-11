@@ -88,7 +88,6 @@
             <type>pom</type>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/com.github.sgroschupf/zkclient -->
         <dependency>
             <groupId>com.github.sgroschupf</groupId>
@@ -96,5 +95,12 @@
             <version>0.1</version>
         </dependency>
 
+        <!-- Redis客户端 -->
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.10.2</version>
+        </dependency>
     </dependencies>
 </project>
