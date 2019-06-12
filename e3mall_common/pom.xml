@@ -25,10 +25,14 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
+
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>

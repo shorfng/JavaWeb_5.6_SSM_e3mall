@@ -47,5 +47,6 @@
     <dubbo:reference interface="com.loto.e3mall.service.ItemCatService" id="itemCatService"/>
     <dubbo:reference interface="com.loto.e3mall.content.service.ContentCategoryService" id="contentCategoryService"/>
     <dubbo:reference interface="com.loto.e3mall.content.service.ContentService" id="contentService"/>
+    <dubbo:reference interface="com.loto.e3mall.search.service.SearchItemService" id="searchItemService"/>
 
 </beans>
