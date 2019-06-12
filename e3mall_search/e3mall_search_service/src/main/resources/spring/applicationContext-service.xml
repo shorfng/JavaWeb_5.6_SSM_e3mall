@@ -11,7 +11,7 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 配置包扫描器 -->
-    <context:component-scan base-package="com.loto.e3mall.search.service"/>
+    <context:component-scan base-package="com.loto.e3mall.search"/>
 
     <!-- 使用dubbo发布服务 -->
     <dubbo:application name="e3mall_search"/>                             <!-- 提供方应用信息，用于计算依赖关系 -->
@@ -20,4 +20,5 @@
 
     <!-- 声明需要暴露的服务接口：ref为引用对象 -->
     <dubbo:service id="searchItemService" interface="com.loto.e3mall.search.service.SearchItemService" ref="searchItemServiceImpl" timeout="600000"/>
+    <dubbo:service id="searchService" interface="com.loto.e3mall.search.service.SearchService" ref="searchServiceImpl" timeout="600000"/>
 </beans>

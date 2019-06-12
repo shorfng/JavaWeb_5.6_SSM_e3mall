@@ -17,6 +17,7 @@
         <module>e3mall_portal_web</module>
         <module>e3mall_content</module>
         <module>e3mall_search</module>
+        <module>e3mall_search_web</module>
     </modules>
 
     <dependencyManagement>
