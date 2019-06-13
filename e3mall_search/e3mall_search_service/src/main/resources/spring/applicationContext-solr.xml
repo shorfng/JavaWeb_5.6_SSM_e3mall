@@ -4,7 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
+    <!-- 单机版solrJ -->
     <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
         <constructor-arg index="0" value="http://192.168.31.130:8983/solr/core1"/>
     </bean>
+
+    <!-- 集群版solrJ -->
+<!--    <bean id="cloudSolrServer" class="org.apache.solr.client.solrj.impl.CloudSolrServer">
+        <constructor-arg index="0" value="192.168.31.130:21811,192.168.31.130:21812,192.168.31.130:21813"></constructor-arg>
+        <property name="defaultCollection" value="collection1"></property>
+    </bean>-->
 </beans>
