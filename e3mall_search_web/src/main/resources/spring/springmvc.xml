@@ -28,6 +28,9 @@
         <property name="suffix" value=".jsp"/>           <!-- 后缀 -->
     </bean>
 
+    <!-- 全局异常处理器 -->
+    <bean class="com.loto.e3mall.search.exception.GlobalExceptionResolver"/>
+
     <!-- 使用dubbo引用服务 -->
     <dubbo:application name="e3mall_search_web"/>
     <dubbo:registry protocol="zookeeper" address="192.168.31.130:2181"/>

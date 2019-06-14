@@ -23,16 +23,26 @@ import com.loto.e3mall.pojo.TbItemExample.Criteria;
 import com.loto.e3mall.service.ItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import javax.jms.*;
 
 @Service
 public class ItemServiceImpl implements ItemService {
-
     @Autowired
     private TbItemMapper itemMapper;
 
     @Autowired
     private TbItemDescMapper itemDescMapper;
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @Resource
+    private Destination topicDestination;
 
     // 根据商品id查询商品信息
     @Override
@@ -81,7 +91,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public E3Result addItem(TbItem item, String desc) {
         // 生成商品id
-        long itemId = IDUtils.genItemId();
+        final long itemId = IDUtils.genItemId();
 
         // 补全TbItem对象的属性
         item.setId(itemId);
@@ -103,6 +113,15 @@ public class ItemServiceImpl implements ItemService {
 
         // 向商品描述表插入数据
         itemDescMapper.insert(itemDesc);
+
+        // 发送商品添加消息
+        jmsTemplate.send(topicDestination, new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                TextMessage textMessage = session.createTextMessage(itemId + "");
+                return textMessage;
+            }
+        });
 
         // 返回成功
         return E3Result.ok();

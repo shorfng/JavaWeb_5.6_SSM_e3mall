@@ -27,8 +27,6 @@ public class SearchController {
     // 搜索结果列表
     @RequestMapping("/search")
     public String searchItemList(String keyword, @RequestParam(defaultValue = "1") Integer page, Model model) throws Exception {
-        keyword = new String(keyword.getBytes("iso-8859-1"), "utf-8");
-
         // 查询商品列表
         SearchResult searchResult = searchService.search(keyword, page, SEARCH_RESULT_ROWS);
 
